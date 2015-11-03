@@ -9,7 +9,15 @@ This is a work in progress to get a go lang application containerized in docker 
 - Go Lang: https://golang.org/
 - kubernete: http://kubernetes.io/
 
-## 1 - GO Lang App
+## 1 - Building the solution
+
+The solution can be run by calling the *build.sh* file in the root of the repository.
+
+> $ *bash build.sh*
+
+**Note:** *Please note this will run all the commands listed below which will build the app, build the container, run it and clean up by deleting the image locally.*
+
+### 1.1 - GO Lang App
 
 Simple hello world app running by defaul on port 8000.
 
@@ -17,7 +25,7 @@ Simple hello world app running by defaul on port 8000.
  
 > $ *go build -o hotel-api .*
 
-## 2 - Build container
+### 1.2 - Build container
 
 **deletes all images with this name if you already have them**
 
@@ -31,14 +39,14 @@ Simple hello world app running by defaul on port 8000.
 
 > $ *docker run -it --rm --name hotel-api --publish 8000:8000 hotel-api*
 
-## 3 - Kubernetes
+## 2 - Kubernetes
 
-This is a work in progress but replication controller file and pod config file is done.
+This is a work in progress but replication controller, the pod and service files are done.
 
-Not tested it yet as I am still working on my kubernete environment.
+Not tested it yet as I am still working on my kubernete environment which I am planning to automate the creation of it and put it here.
 
 ## License
 
-See license file included in the repository. 
+See license file included in the repository.
 
 ...Hmmm Muffins
