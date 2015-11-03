@@ -23,7 +23,6 @@ func main() {
     log.Printf("(env = %q, port %q)", binding, environment)
     
     http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
-		//log.Printf("%q", r.URL.Path)
         fmt.Fprintf(w, "Hello, %q (env = %q, port %q)", html.EscapeString(r.URL.Path), environment, binding)
     })
 
