@@ -24,3 +24,5 @@ docker run -it --rm --name hotel-api --publish 8000:8000 hotel-api
 This is a work in progress but replication controller file and pod config file is done.
 
 Not tested it yet as I am still working on my kubernete environment. 
+
+...Hmmm Muffins
