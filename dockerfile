@@ -1,7 +1,7 @@
 FROM ubuntu:14.04
 MAINTAINER Daniel Portella
 LABEL version="1.0.0"
-LABEL description="Go process example for docker"
+LABEL description="Go process example for docker."
 
 RUN mkdir api
 ADD hotel-api /api/
