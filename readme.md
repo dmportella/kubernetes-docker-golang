@@ -27,15 +27,17 @@ Simple hello world app running by defaul on port 8000.
 
 ### 1.2 - Build container
 
-**deletes all images with this name if you already have them**
+This section has each command used to build and run the go container.
+
+**Deletes all images with this name if you already have them**
 
 > $ *docker rmi hotel-api*
 
-**build image**
+**Build docker Image**
 
 > $ *docker build -t hotel-api:latest .*
 
-**run docker instance dev mode**
+**Run docker instance dev mode**
 
 > $ *docker run -it --rm --name hotel-api --publish 8000:8000 hotel-api*
 
