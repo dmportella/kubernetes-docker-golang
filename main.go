@@ -6,12 +6,14 @@ import (
     "log"
     "net/http"
     "os"
+    
+    "github.com/gorilla/mux"
 )
 
+var binding = os.Getenv("BINDING")    
+var environment = os.Getenv("ENVIRONMENT")
+
 func main() {
-    var binding = os.Getenv("BINDING")    
-    var environment = os.Getenv("ENVIRONMENT")
-    
     if len(binding) == 0 {
         binding = ":8000"
     }
@@ -20,11 +22,14 @@ func main() {
         environment = "development"
     }
     
+    router := mux.NewRouter().StrictSlash(true)
+    router.HandleFunc("/", Index)
+        
     log.Printf("(env = %q, port %q)", binding, environment)
     
-    http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
-        fmt.Fprintf(w, "Hello, %q (env = %q, port %q)", html.EscapeString(r.URL.Path), environment, binding)
-    })
+    log.Fatal(http.ListenAndServe(binding, router))
+}
 
-    log.Fatal(http.ListenAndServe(binding, nil))
+func Index (w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "Hello, %q (env = %q, port %q)", html.EscapeString(r.URL.Path), environment, binding)
 }
