@@ -2,6 +2,8 @@
 
 This is a work in progress to get a go lang application containerized in docker and being managed in a kubernete cluster.
 
+[![Build Status](https://travis-ci.org/dmportella/kubernetes-docker-golang.svg)](https://travis-ci.org/dmportella/kubernetes-docker-golang)
+
 ## 0 - Dependencies
 **Note:** *Please note this has been developed and tests using a linux debian OS (mint distro)*
 
