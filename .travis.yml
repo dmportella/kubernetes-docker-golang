@@ -4,4 +4,4 @@ go:
   - 1.3
   - tip
   
-script: ./build.sh
+script: bash build.sh
