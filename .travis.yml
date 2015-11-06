@@ -4,4 +4,7 @@ go:
   - 1.3
   - tip
   
+services:
+  - docker
+  
 script: bash build.sh
