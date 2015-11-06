@@ -13,7 +13,11 @@ ENV BINDING :8000
 # Define working directory.
 WORKDIR /api
 
-USER daemon
+RUN groupadd -r gogroup -g 433 && \
+	useradd -u 431 -r -g gogroup -d /api -s /sbin/nologin -c "go image user" go-user && \
+	chown -R go-user /api
+
+USER go-user
 
 EXPOSE 8000
 
