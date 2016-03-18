@@ -28,3 +28,4 @@ vendor/**
 !vendor/manifest
 
 hotel-api
+docker-build.log
