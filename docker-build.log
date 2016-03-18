@@ -1,55 +1,43 @@
-Sending build context to Docker daemon 557.1 kBSending build context to Docker daemon 1.114 MBSending build context to Docker daemon 1.671 MBSending build context to Docker daemon 2.228 MBSending build context to Docker daemon 2.785 MBSending build context to Docker daemon 3.342 MBSending build context to Docker daemon 3.899 MBSending build context to Docker daemon 4.456 MBSending build context to Docker daemon 5.014 MBSending build context to Docker daemon 5.571 MBSending build context to Docker daemon 6.128 MBSending build context to Docker daemon 6.685 MBSending build context to Docker daemon 7.242 MBSending build context to Docker daemon 7.539 MB
+Sending build context to Docker daemon 557.1 kBSending build context to Docker daemon 1.114 MBSending build context to Docker daemon 1.671 MBSending build context to Docker daemon 2.228 MBSending build context to Docker daemon 2.785 MBSending build context to Docker daemon 3.342 MBSending build context to Docker daemon 3.899 MBSending build context to Docker daemon 4.456 MBSending build context to Docker daemon 5.014 MBSending build context to Docker daemon 5.571 MBSending build context to Docker daemon 6.128 MBSending build context to Docker daemon 6.685 MBSending build context to Docker daemon 7.242 MBSending build context to Docker daemon 7.609 MB
 Step 1 : FROM ubuntu:14.04
  ---> e17b56e5200a
 Step 2 : MAINTAINER Daniel Portella
- ---> Running in c3ca06218f0c
- ---> 0e858f0c47da
-Removing intermediate container c3ca06218f0c
+ ---> Using cache
+ ---> f1e464cc74c9
 Step 3 : LABEL version 1.0.0
- ---> Running in 5fccb437b334
- ---> e2ba0dbc6a64
-Removing intermediate container 5fccb437b334
+ ---> Using cache
+ ---> 1995eddc50f3
 Step 4 : LABEL description Go process example for docker.
- ---> Running in faa541031f75
- ---> eddc852b419f
-Removing intermediate container faa541031f75
+ ---> Using cache
+ ---> f826497ed227
 Step 5 : RUN mkdir api
- ---> Running in dfff9e6375e7
- ---> 45a94866ef9c
-Removing intermediate container dfff9e6375e7
+ ---> Using cache
+ ---> 90cef4ebecb5
 Step 6 : ADD hotel-api /api/
- ---> 05c182ed9e6d
-Removing intermediate container e627d85b3651
+ ---> Using cache
+ ---> 8cb811c420c2
 Step 7 : RUN chmod +x /api/hotel-api
- ---> Running in c7c740ed8909
- ---> 9571dc1bbe9d
-Removing intermediate container c7c740ed8909
+ ---> Using cache
+ ---> 2de271b1fa0f
 Step 8 : ENV ENVIRONMENT development
- ---> Running in ef27d02c29b3
- ---> c7faf89e6bc2
-Removing intermediate container ef27d02c29b3
+ ---> Using cache
+ ---> 496bbeae65a2
 Step 9 : ENV BINDING :8080
- ---> Running in db90cada1881
- ---> 01aec4468bc0
-Removing intermediate container db90cada1881
+ ---> Using cache
+ ---> a67e3e45038b
 Step 10 : WORKDIR /api
- ---> Running in fce2d81bd57d
- ---> 4fd0b112aa33
-Removing intermediate container fce2d81bd57d
+ ---> Using cache
+ ---> 8c41b3fb9584
 Step 11 : RUN groupadd -r gogroup -g 433 && 	useradd -u 431 -r -g gogroup -d /api -s /sbin/nologin -c "go image user" go-user && 	chown -R go-user /api &&     chmod -R 774 /api
- ---> Running in 905f0740431f
- ---> c58113a62c79
-Removing intermediate container 905f0740431f
+ ---> Using cache
+ ---> 35beeafe5b42
 Step 12 : USER go-user
- ---> Running in 2ac1a67ba222
- ---> f46d4b626b91
-Removing intermediate container 2ac1a67ba222
+ ---> Using cache
+ ---> 243ffd6d4981
 Step 13 : EXPOSE 8080
- ---> Running in 9c5048d71018
- ---> 49b89f5c4139
-Removing intermediate container 9c5048d71018
+ ---> Using cache
+ ---> 8459c63027d4
 Step 14 : ENTRYPOINT /api/hotel-api
- ---> Running in fe7402ccdeb5
- ---> 7e341c55e077
-Removing intermediate container fe7402ccdeb5
-Successfully built 7e341c55e077
+ ---> Using cache
+ ---> 77d377368529
+Successfully built 77d377368529

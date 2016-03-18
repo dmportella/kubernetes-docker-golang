@@ -1,56 +1,47 @@
-# GO Lang in Docker and managed by Kubernetes
+# kubernetes-docker-golang
 
-This is a work in progress to get a go lang application containerized in docker and being managed in a kubernete cluster.
+Simple golang web site using mux to run on KUBERNETES or RANCHER and other docker management platforms.
 
 [![Build Status](https://travis-ci.org/dmportella/kubernetes-docker-golang.svg?branch=master)](https://travis-ci.org/dmportella/kubernetes-docker-golang)
 
-## 0 - Dependencies
-**Note:** *Please note this has been developed and tests using a linux debian OS (mint distro)*
+## DOCKERHUB
 
-- Docker: http://www.docker.com/
-- Go Lang: https://golang.org/
-- kubernete: http://kubernetes.io/
+[![dockeri.co](http://dockeri.co/image/dmportella/golangweb)](https://hub.docker.com/r/dmportella/golangweb/)
 
-## 1 - Building the solution
+## GOLANGWEB
 
-The solution can be run by calling the *build.sh* file in the root of the repository.
+Simple golang site with route to simulate site failure.
 
-> $ *bash build.sh*
+Built for testing *kubernetes* and *rancher* instances.
 
-**Note:** *Please note this will run all the commands listed below which will build the app, build the container, run it and clean up by deleting the image locally.*
+### Normal route
 
-### 1.1 - GO Lang App
+Web site should be available on port `8080`.
 
-Simple hello world app running by defaul on port 8000.
+### Health check
+```
+GET /__health
+{
+version: "1.0.0",
+status: "OK"
+}
+```
+#### routes
+* Health check url.: `/__health/`
+* Set to throw 500: `/__health/throw500`
+* Set to time out: `/__health/timeout`
+* Set kill the process: `/__health/killprocess`
 
-**To build run** *this will build a single package called hotel-api*
- 
-> $ *go build -o hotel-api .*
+## Building
 
-### 1.2 - Build container
+The shell file `build.sh` will run npm install, install and run grunt and it will build and run the docker image.
 
-This section has each command used to build and run the go container.
+> $ `./build.sh`
 
-**Deletes all images with this name if you already have them**
+Builds docker image and tags it.
 
-> $ *docker rmi hotel-api*
+> $ `./build-image.sh`
 
-**Build docker Image**
+* Installs godep and other setup things
 
-> $ *docker build -t hotel-api:latest .*
-
-**Run docker instance dev mode**
-
-> $ *docker run -it --rm --name hotel-api --publish 8000:8000 hotel-api*
-
-## 2 - Kubernetes
-
-This is a work in progress but replication controller, the pod and service files are done.
-
-Not tested it yet as I am still working on my kubernete environment which I am planning to automate the creation of it and put it here.
-
-## License
-
-See license file included in the repository.
-
-...Hmmm Muffins
+> $ `./setup.sh`

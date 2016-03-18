@@ -4,6 +4,9 @@ echo "CI: " $CI "TRAVIS: " $TRAVIS
 echo "settting up"
 ./setup.sh
 
+echo "testing"
+go test
+
 echo "golang build"
 go build -o hotel-api .
 
