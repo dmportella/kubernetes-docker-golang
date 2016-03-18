@@ -15,7 +15,7 @@ var environment = os.Getenv("ENVIRONMENT")
 
 func main() {
     if len(binding) == 0 {
-        binding = ":8000"
+        binding = ":8080"
     }
     
     if len(environment) == 0 {

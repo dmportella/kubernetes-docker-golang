@@ -1,22 +1,25 @@
-#! /bin/bash
-echo $CI $TRAVIS
-echo
-echo "Building go application."
-echo
+#!/bin/bash
+echo "CI: " $CI "TRAVIS: " $TRAVIS
+
+echo "settting up"
+./setup.sh
+
+echo "golang build"
 go build -o hotel-api .
-echo
-echo "Building docker image."
-echo
-docker build -t hotel-api:latest .
+
+echo "build docker image"
+./build-image.sh
 
 if [ -z "$TRAVIS" ]; then
-	echo
-	echo "Running docker image."
-	echo
-	docker run -it --rm --name hotel-api --publish 8000:8000 hotel-api
-	echo
-	echo "Deleting the docker image."
-	echo
-	docker rmi hotel-api
-	echo
+	TAG=${TAG:-$(grep version dockerfile | awk '{print $3}')}
+	IMAGE=dmportella/golangweb:${TAG}
+
+	echo "running container image:" ${IMAGE}
+	
+	docker run -it --rm --name golangweb --publish 8080:8080 ${IMAGE}
+
+	echo "deleting image"
+	docker rmi ${IMAGE}
 fi
+
+echo "DONE"
