@@ -8,7 +8,7 @@ echo "testing"
 go test
 
 echo "golang build"
-go build -o hotel-api .
+go build -o golangweb .
 
 echo "build docker image"
 ./build-image.sh

@@ -1,12 +1,12 @@
 FROM ubuntu:14.04
 MAINTAINER Daniel Portella
-LABEL version 1.0.0
+LABEL version 1.0.1
 LABEL description Go process example for docker.
 
 # everything from here to the user command is done under root.
 RUN mkdir api
-ADD hotel-api /api/
-RUN chmod +x /api/hotel-api 
+ADD golangweb /api/
+RUN chmod +x /api/golangweb 
 
 # some environment variables
 ENV ENVIRONMENT development
@@ -29,4 +29,4 @@ USER go-user
 EXPOSE 8080
 
 # Define default command.
-ENTRYPOINT /api/hotel-api
+ENTRYPOINT /api/golangweb
