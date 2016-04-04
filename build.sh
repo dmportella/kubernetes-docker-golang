@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "CI: " $CI "TRAVIS: " $TRAVIS
+echo "CI: " $CI "TRAVIS: " $TRAVIS "TRAVIS_TAG: " $TRAVIS_TAG
 
 echo "settting up"
 ./setup.sh
