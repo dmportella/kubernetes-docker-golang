@@ -1,11 +1,16 @@
 #!/bin/bash
 
+if [[ $# -eq 0 ]] ; then
+    echo 'Missing version'
+    exit 1
+fi
+
 REPO=dmportella/golangweb
-TAG=${TAG:-$(grep version dockerfile | awk '{print $3}')}
+TAG="$1"
 IMAGE=${REPO}:${TAG}
 
 echo "docker build -t ${IMAGE} ."
-docker build -t ${IMAGE} . > docker-build.log
+docker build --build-arg CONT_IMG_VER=${TAG} -t ${IMAGE} . > docker-build.log
 
 IMAGE_ID=$(grep 'Successfully built' docker-build.log | awk '{print $3}')
 

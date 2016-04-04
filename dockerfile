@@ -1,6 +1,9 @@
 FROM ubuntu:14.04
 MAINTAINER Daniel Portella
-LABEL version 1.0.1
+
+ARG CONT_IMG_VER
+
+LABEL version ${CONT_IMG_VER}
 LABEL description Go process example for docker.
 
 # everything from here to the user command is done under root.
@@ -9,6 +12,7 @@ ADD golangweb /api/
 RUN chmod +x /api/golangweb 
 
 # some environment variables
+ENV CONT_IMG_VER ${CONT_IMG_VER}
 ENV ENVIRONMENT development
 ENV BINDING :8080
 

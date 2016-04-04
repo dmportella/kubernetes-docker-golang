@@ -14,6 +14,7 @@ import (
 
 var binding = os.Getenv("BINDING")    
 var environment = os.Getenv("ENVIRONMENT")
+var appVersion = os.Getenv("CONT_IMG_VER")
 var errorOn500 = false
 var timeout = false
 var killProcess = false
@@ -60,7 +61,7 @@ func Health (w http.ResponseWriter, r *http.Request) {
 
 	var apiStatus = ApiStatus {
 		Status: "OK",
-		Version: "1.0.1",
+		Version: appVersion,
 		Environment: environment,
 	}
 
