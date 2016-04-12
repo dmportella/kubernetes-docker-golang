@@ -27,5 +27,5 @@ _testmain.go
 vendor/**
 !vendor/manifest
 
-hotel-api
 docker-build.log
+golangweb
